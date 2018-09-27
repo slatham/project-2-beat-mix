@@ -11,7 +11,7 @@ const validDrumArray = ['kicks', 'snares','hiHats','rideCymbals'];
 const toggleDrum = (drumArray, indexNumber) => {
 
 // check for any missing and invalid arguments
-if (!validDrumArray.includes(drumArray) || indexNumber >= drumArray.length || indexNumber < 0){
+if (!validDrumArray.includes(drumArray) || indexNumber >= kicks.length || indexNumber < 0){
 	return // if any are missing or strange ... time to bail!
 }
 
@@ -65,6 +65,41 @@ const clear = drumArray => {
 
 // function to invert a whole drum array
 const invert = drumArray => {
+
+	if (!validDrumArray.includes(drumArray)){
+		return
+	}
+
+
+	switch (drumArray){
+	case 'kicks':
+		kicks.forEach((element,index) => {
+			kicks[index] = !kicks[index];
+		});
+		break;
+	case 'snares':
+		snares.forEach((element,index) => {
+			snares[index] = !snares[index];
+		});
+		break;
+	case 'hiHats':
+		hiHats.forEach((element,index) => {
+			hiHats[index] = !hiHats[index];
+		});
+		break;
+	case 'rideCymbals':
+		rideCymbals.forEach((element,index) => {
+			rideCymbals[index] = !rideCymbals[index];
+		});
+		break;
+}
+
+const getNeighborPads = (x,y,size) => {
+
+
+return [0,1];
+
+}
 
 
 }
