@@ -386,7 +386,7 @@ describe('Preset function - presetHandler.js file', () => {
   describe('BONUS: getNeighborPads() function', () => {
 
     it('should exist and be a function', () => {
-      expect(getNeighborPads).to.exist;
+      getNeighborPads
       expect(getNeighborPads).to.be.an.instanceof(Function);
     });
 

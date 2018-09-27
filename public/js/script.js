@@ -94,12 +94,15 @@ const invert = drumArray => {
 		break;
 }
 
-const getNeighborPads = (x,y,size) => {
 
 
-return [0,1];
 
 }
+
+
+const getNeighborPads = (x,y,size) => {
+
+return [1,1]
 
 
 }
