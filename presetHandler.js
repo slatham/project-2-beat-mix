@@ -7,12 +7,12 @@ const OK = 200;
 
 // Complete this function:
 const presetHandler = (requestType,presetIndex = 0,newPresetArray = []) => {
-
+debugger;
   // array to return to the client
   let returnArray = [];                 // initialise a blank array
 
   // check for an invalid presetIndex from client
-  if (presetIndex && !Math.abs(presetIndex) <= presets.length) {
+  if (presetIndex > presets.length || presetIndex < 0) {
 
     returnArray[0] = NOTFOUND; // set the return code to NOTFOUND
     //console.log(returnArray)
@@ -52,7 +52,8 @@ const presetHandler = (requestType,presetIndex = 0,newPresetArray = []) => {
 //helper function to save the newPresetArray to the presets in the correct index
 const savePreset = (presetIndex,newPresetArray) => {
 
-  // need to write this next
+
+  // save
   return presets[presetIndex] = newPresetArray
 
 }

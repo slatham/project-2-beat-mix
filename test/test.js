@@ -353,12 +353,12 @@ describe('Preset function - presetHandler.js file', () => {
       });
 
       it('should return 200 as the first element for a valid array index', function() {
-        expect(presetHandler('PUT', 0, ['newTest'])[0]).to.equal(200);
+        expect(presetHandler('PUT', 1, ['newTest'])[0]).to.equal(200);
       });
 
       it('should return the updated preset array as the second element', function() {
         const testPreset = ['newTest', 'newTest'];
-        expect(presetHandler('PUT', 0, testPreset)[1]).to.deep.equal(testPreset);
+        expect(presetHandler('PUT', 1, testPreset)[1]).to.deep.equal(testPreset);
       });
 
       it('should set the preset at the correct index with the new presetArray', function() {
