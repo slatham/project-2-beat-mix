@@ -100,9 +100,46 @@ const invert = drumArray => {
 }
 
 
+// function to get the neighbor pads
 const getNeighborPads = (x,y,size) => {
 
-return [1,1]
-
-
+// check for valid arguments
+if (x > size - 1 || y > size - 1 || x < 0 || y < 0) {
+	// if invalid, return a blank array
+	return [];
 }
+
+// calculate each neighbor coordinate
+let nLeft = [x-1, y];
+let nRight = [x +1, y];
+let nTop = [x,y+1];
+let nBottom = [x,y-1];
+
+// array to hold all possible neighbors
+let allNeighbors = [nLeft,nRight,nTop,nBottom];
+debugger;
+// create a new array of coordinates by filtering out invalid x and y values
+let neighbors = allNeighbors.filter(coordArray => {
+		
+
+	 return isValidNeighbor(coordArray,size);
+
+});
+
+
+// return the neighbor array
+return neighbors;
+
+};
+
+// helper function to check for valid values for x and y
+const isValidNeighbor = (coordArray,size) => {
+
+		xValue = coordArray[0] >= 0 && coordArray[0] <= size -1;
+		yValue = coordArray[1] >= 0 && coordArray[1] <= size -1;
+
+		return xValue && yValue;
+
+} 
+
+

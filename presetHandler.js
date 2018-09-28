@@ -7,7 +7,7 @@ const OK = 200;
 
 // Complete this function:
 const presetHandler = (requestType,presetIndex = 0,newPresetArray = []) => {
-debugger;
+
   // array to return to the client
   let returnArray = [];                 // initialise a blank array
 
