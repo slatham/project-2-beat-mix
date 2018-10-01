@@ -15,14 +15,14 @@ const presetHandler = (requestType,presetIndex = 0,newPresetArray = []) => {
   if (presetIndex > presets.length || presetIndex < 0) {
 
     returnArray[0] = NOTFOUND; // set the return code to NOTFOUND
-    //console.log(returnArray)
+
     return returnArray; // not valid so get out asap
 
   // check if requestType is invalid
   } else if (!validRequestTypes.includes(requestType)) {
 
      returnArray[0] = BADREQUEST;  // set the return code to BADREQUEST
-     //console.log(returnArray)
+
      return returnArray;    // not valid so get out asap
 
   } else {
@@ -32,13 +32,11 @@ const presetHandler = (requestType,presetIndex = 0,newPresetArray = []) => {
         case 'GET':
           returnArray[0] = OK;
           returnArray[1] = presets[presetIndex];
-          //console.log(returnArray)
           return returnArray;
         case 'PUT':
           if (savePreset(presetIndex,newPresetArray)) {
               returnArray[0] = OK;
               returnArray[1] = newPresetArray;
-              //console.log(returnArray)
               return returnArray;
           } else {
               // something went wrong, tell the console about it!
@@ -52,14 +50,10 @@ const presetHandler = (requestType,presetIndex = 0,newPresetArray = []) => {
 //helper function to save the newPresetArray to the presets in the correct index
 const savePreset = (presetIndex,newPresetArray) => {
 
-
   // save
   return presets[presetIndex] = newPresetArray
 
 }
-
-
-
 
 // Leave this line so that your presetHandler function can be used elsewhere:
 module.exports = presetHandler;

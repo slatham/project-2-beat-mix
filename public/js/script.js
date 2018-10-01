@@ -4,7 +4,7 @@ let snares = [false,false,false,false,false,false,false,false,false,false,false,
 let hiHats = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
 let rideCymbals = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
 
-// used to make validation easier
+// array of valid drum names - used to make validation easier
 const validDrumArray = ['kicks', 'snares','hiHats','rideCymbals'];
 
 // function to toggle a drum on or off
@@ -15,7 +15,7 @@ if (!validDrumArray.includes(drumArray) || indexNumber >= kicks.length || indexN
 	return // if any are missing or strange ... time to bail!
 }
 
-// for each type of drum toggle it
+// for each type of drum, toggle it
 switch (drumArray){
 	case 'kicks':
 		kicks[indexNumber] = !kicks[indexNumber];
@@ -65,38 +65,34 @@ const clear = drumArray => {
 
 // function to invert a whole drum array
 const invert = drumArray => {
-
+	// check for valid drumArray
 	if (!validDrumArray.includes(drumArray)){
-		return
+		return  // if not, get out
 	}
 
 
 	switch (drumArray){
-	case 'kicks':
-		kicks.forEach((element,index) => {
-			kicks[index] = !kicks[index];
-		});
+		case 'kicks':
+			kicks.forEach((element,index) => {
+				kicks[index] = !kicks[index];
+			});
 		break;
-	case 'snares':
-		snares.forEach((element,index) => {
-			snares[index] = !snares[index];
-		});
+		case 'snares':
+			snares.forEach((element,index) => {
+				snares[index] = !snares[index];
+			});
 		break;
-	case 'hiHats':
-		hiHats.forEach((element,index) => {
-			hiHats[index] = !hiHats[index];
-		});
+		case 'hiHats':
+			hiHats.forEach((element,index) => {
+				hiHats[index] = !hiHats[index];
+			});
 		break;
-	case 'rideCymbals':
-		rideCymbals.forEach((element,index) => {
-			rideCymbals[index] = !rideCymbals[index];
-		});
+		case 'rideCymbals':
+			rideCymbals.forEach((element,index) => {
+				rideCymbals[index] = !rideCymbals[index];
+			});
 		break;
-}
-
-
-
-
+	}
 }
 
 
@@ -110,22 +106,20 @@ if (x > size - 1 || y > size - 1 || x < 0 || y < 0) {
 }
 
 // calculate each neighbor coordinate
-let nLeft = [x-1, y];
-let nRight = [x +1, y];
-let nTop = [x,y+1];
-let nBottom = [x,y-1];
+let nLeft = [x-1, y];		// left would be x - 1
+let nRight = [x +1, y]; // right would be x +1
+let nTop = [x,y+1];			// above would be y +1
+let nBottom = [x,y-1];	// below would be y -1
 
 // array to hold all possible neighbors
 let allNeighbors = [nLeft,nRight,nTop,nBottom];
-debugger;
+
 // create a new array of coordinates by filtering out invalid x and y values
 let neighbors = allNeighbors.filter(coordArray => {
-		
 
 	 return isValidNeighbor(coordArray,size);
 
 });
-
 
 // return the neighbor array
 return neighbors;
@@ -134,12 +128,12 @@ return neighbors;
 
 // helper function to check for valid values for x and y
 const isValidNeighbor = (coordArray,size) => {
-
+		// a neighbor can not be less than zero or greater than the
+		// size of the synth pad - minus 1 becuase zero indexed
 		xValue = coordArray[0] >= 0 && coordArray[0] <= size -1;
 		yValue = coordArray[1] >= 0 && coordArray[1] <= size -1;
 
+		//if both are true, return true
 		return xValue && yValue;
 
-} 
-
-
+}
